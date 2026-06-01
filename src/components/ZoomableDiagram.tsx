@@ -84,7 +84,6 @@ export function ZoomableDiagram({ chart, id }: { chart: string; id: string }) {
                 </div>
                 <TransformComponent
                   wrapperStyle={{ width: '100%', height: '100%' }}
-                  contentStyle={{ display: 'block' }}
                 >
                   <div
                     className="zoom-svg p-6"

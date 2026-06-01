@@ -45,8 +45,5 @@
   display: inline-block;
 }
 .zoom-svg svg {
-  max-width: none !important;
-  width: auto !important;
-  height: auto !important;
-  display: block;
+  max-width: none;
 }

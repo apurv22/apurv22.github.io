@@ -69,7 +69,7 @@ export const projects: Project[] = [
 
     Postgres -->|JDBC read| DailyAgg & Merch & Recon
     DailyAgg & Merch & Recon -->|write| Postgres
-    Archive -->|>30d Parquet| S3[(S3<br/>cold storage)]
+    Archive -->|"30-day Parquet"| S3[(S3<br/>cold storage)]
 
     subgraph Serving["Serving Layer"]
       API["FastAPI<br/>/aggregates<br/>/merchants<br/>/settlement"]
@@ -321,7 +321,7 @@ export const projects: Project[] = [
     ],
     githubUrl: 'https://github.com/apurv22/ap-taskqueue',
     mermaid: `flowchart TB
-    App["Application<br/>(Web server / CLI)"] -->|task.delay() / apply_async()| TQ["TaskQueue<br/>registry + sync→async bridge"]
+    App["Application<br/>(Web server / CLI)"] -->|"task.delay() / apply_async()"| TQ["TaskQueue<br/>registry + sync→async bridge"]
     TQ -->|msgpack| Broker
 
     subgraph Broker["Redis Broker"]
