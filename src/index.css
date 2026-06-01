@@ -41,10 +41,12 @@
   }
 }
 
-.mermaid {
-  @apply flex justify-center;
+.zoom-svg {
+  display: inline-block;
 }
-.mermaid svg {
-  max-width: 100%;
-  height: auto;
+.zoom-svg svg {
+  max-width: none !important;
+  width: auto !important;
+  height: auto !important;
+  display: block;
 }
