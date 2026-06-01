@@ -15,7 +15,7 @@ export function Layout({ children }: { children: ReactNode }) {
     <div className="min-h-screen flex flex-col">
       <header className="sticky top-0 z-40 backdrop-blur bg-slate-950/80 border-b border-slate-800">
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <a href="#top" className="font-mono text-accent font-semibold">
+          <a href="#/" className="font-mono text-accent font-semibold">
             apurv<span className="text-slate-100">.dev</span>
           </a>
           <ul className="hidden md:flex items-center gap-6 text-sm text-slate-400">

@@ -1,9 +1,9 @@
 import type { Project } from '../data/projects'
 
-export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
-    <button
-      onClick={onOpen}
+    <a
+      href={`#/projects/${project.slug}`}
       className="card text-left group flex flex-col h-full"
     >
       <div className="flex items-baseline justify-between gap-2 mb-2">
@@ -27,6 +27,6 @@ export function ProjectCard({ project, onOpen }: { project: Project; onOpen: () 
       <span className="text-accent text-sm mt-5 inline-flex items-center gap-1">
         View details <span aria-hidden>→</span>
       </span>
-    </button>
+    </a>
   )
 }

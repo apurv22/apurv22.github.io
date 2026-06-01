@@ -1,11 +1,7 @@
-import { useState } from 'react'
-import { projects, type Project } from '../data/projects'
+import { projects } from '../data/projects'
 import { ProjectCard } from './ProjectCard'
-import { ProjectDetail } from './ProjectDetail'
 
 export function ProjectsGrid() {
-  const [active, setActive] = useState<Project | null>(null)
-
   return (
     <section id="projects" className="section">
       <p className="section-eyebrow">Projects</p>
@@ -17,15 +13,9 @@ export function ProjectsGrid() {
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project) => (
-          <ProjectCard
-            key={project.slug}
-            project={project}
-            onOpen={() => setActive(project)}
-          />
+          <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
-
-      {active && <ProjectDetail project={active} onClose={() => setActive(null)} />}
     </section>
   )
 }

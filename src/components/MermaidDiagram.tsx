@@ -26,7 +26,15 @@ function ensureInit() {
   initialized = true
 }
 
-export function MermaidDiagram({ chart, id }: { chart: string; id: string }) {
+export function MermaidDiagram({
+  chart,
+  id,
+  zoomable = false,
+}: {
+  chart: string
+  id: string
+  zoomable?: boolean
+}) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -35,9 +43,20 @@ export function MermaidDiagram({ chart, id }: { chart: string; id: string }) {
     const render = async () => {
       if (!ref.current) return
       try {
-        const { svg } = await mermaid.render(`mermaid-${id}-${Math.random().toString(36).slice(2)}`, chart)
-        if (!cancelled && ref.current) {
-          ref.current.innerHTML = svg
+        const { svg } = await mermaid.render(
+          `mermaid-${id}-${Math.random().toString(36).slice(2)}`,
+          chart,
+        )
+        if (cancelled || !ref.current) return
+        ref.current.innerHTML = svg
+
+        if (zoomable) {
+          const svgEl = ref.current.querySelector('svg')
+          if (svgEl) {
+            svgEl.style.maxWidth = 'none'
+            svgEl.style.width = 'auto'
+            svgEl.style.height = 'auto'
+          }
         }
       } catch (e) {
         if (ref.current) {
@@ -49,7 +68,8 @@ export function MermaidDiagram({ chart, id }: { chart: string; id: string }) {
     return () => {
       cancelled = true
     }
-  }, [chart, id])
+  }, [chart, id, zoomable])
 
-  return <div ref={ref} className="mermaid w-full overflow-x-auto" />
+  const baseClass = zoomable ? 'mermaid' : 'mermaid w-full overflow-x-auto'
+  return <div ref={ref} className={baseClass} />
 }
