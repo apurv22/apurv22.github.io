@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-950 text-slate-300 font-sans antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply text-slate-100 font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .section {
+    @apply max-w-6xl mx-auto px-6 py-20;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl mb-3;
+  }
+  .section-eyebrow {
+    @apply text-accent text-sm uppercase tracking-widest mb-2 font-mono;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full bg-slate-800/60 border border-slate-700 px-3 py-1 text-xs font-mono text-slate-300;
+  }
+  .chip-accent {
+    @apply inline-flex items-center rounded-full bg-accent/10 border border-accent/40 px-3 py-1 text-xs font-mono text-accent;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg bg-accent hover:bg-accent-dark text-slate-950 font-semibold px-5 py-2.5 transition-colors;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-lg border border-slate-700 hover:border-accent hover:text-accent text-slate-300 font-semibold px-5 py-2.5 transition-colors;
+  }
+  .card {
+    @apply bg-slate-900/60 border border-slate-800 rounded-xl p-6 hover:border-accent/60 transition-colors;
+  }
+}
+
+.mermaid {
+  @apply flex justify-center;
+}
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
