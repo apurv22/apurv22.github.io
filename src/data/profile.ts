@@ -5,7 +5,6 @@ export type Profile = {
   email: string
   github: string
   linkedin: string
-  resumePath: string
   intro: string
   about: string[]
 }
@@ -17,7 +16,6 @@ export const profile: Profile = {
   email: 'apurvpatel22@gmail.com',
   github: 'https://github.com/apurv22',
   linkedin: 'https://www.linkedin.com/in/apurvpatel/',
-  resumePath: '/resume/Resume_Apurv_Patel_Master_SWE.pdf',
   intro:
     'I build payments and ML platform infrastructure at Capital One. I work across the stack — Kafka, PySpark, Airflow, FastAPI, AWS — and I like systems where correctness and latency both matter.',
   about: [

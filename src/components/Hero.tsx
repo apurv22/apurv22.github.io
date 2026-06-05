@@ -5,7 +5,7 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div
         aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(34,211,238,0.15),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(230,57,70,0.15),transparent_60%)]"
       />
       <div className="section relative pt-24 md:pt-32 pb-16">
         <p className="section-eyebrow">Hi, I'm</p>
@@ -20,9 +20,6 @@ export function Hero() {
         <div className="flex flex-wrap gap-3">
           <a href="#projects" className="btn">
             View projects
-          </a>
-          <a href={profile.resumePath} target="_blank" rel="noreferrer" className="btn-outline">
-            Download resume
           </a>
           <a href={profile.github} target="_blank" rel="noreferrer" className="btn-outline">
             GitHub

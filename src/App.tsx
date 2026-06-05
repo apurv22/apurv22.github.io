@@ -5,7 +5,6 @@ import { About } from './components/About'
 import { Skills } from './components/Skills'
 import { Experience } from './components/Experience'
 import { ProjectsGrid } from './components/ProjectsGrid'
-import { ResumeSection } from './components/ResumeSection'
 import { Contact } from './components/Contact'
 import { ProjectPage } from './components/ProjectPage'
 import { useHashRoute } from './lib/useHashRoute'
@@ -60,7 +59,6 @@ export default function App() {
       <Skills />
       <Experience />
       <ProjectsGrid />
-      <ResumeSection />
       <Contact />
     </Layout>
   )
