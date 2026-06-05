@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { profile } from '../data/profile'
+import { ThemeToggle } from './ThemeToggle'
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -17,15 +18,18 @@ export function Layout({ children }: { children: ReactNode }) {
           <a href="#/" className="font-mono text-accent font-semibold">
             apurv<span className="text-slate-100">.dev</span>
           </a>
-          <ul className="hidden md:flex items-center gap-6 text-sm text-slate-400">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a href={link.href} className="hover:text-accent transition-colors">
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="flex items-center gap-4 md:gap-6">
+            <ul className="hidden md:flex items-center gap-6 text-sm text-slate-400">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className="hover:text-accent transition-colors">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <ThemeToggle />
+          </div>
         </nav>
       </header>
 

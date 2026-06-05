@@ -1,18 +1,20 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch'
 import { renderMermaid } from '../lib/mermaid'
+import { useTheme } from '../lib/useTheme'
 
 export function ZoomableDiagram({ chart, id }: { chart: string; id: string }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [isFullscreen, setIsFullscreen] = useState(false)
   const [svg, setSvg] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const { theme } = useTheme()
 
   useEffect(() => {
     let cancelled = false
     setSvg(null)
     setError(null)
-    renderMermaid(chart, id)
+    renderMermaid(chart, id, theme)
       .then((rendered) => {
         if (!cancelled) setSvg(rendered)
       })
@@ -22,7 +24,7 @@ export function ZoomableDiagram({ chart, id }: { chart: string; id: string }) {
     return () => {
       cancelled = true
     }
-  }, [chart, id])
+  }, [chart, id, theme])
 
   useEffect(() => {
     const onChange = () => setIsFullscreen(document.fullscreenElement === containerRef.current)

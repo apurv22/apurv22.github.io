@@ -4,25 +4,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: {
-          DEFAULT: '#E63946',
-          dark: '#C42E3A',
-        },
         // Palette: #E63946 #F1FAEE #A8DADC #457B9D #1D3557
-        // Override the slate scale so existing slate-* classes adopt the new
-        // navy -> off-white dark theme with no per-component edits.
+        // Colors are driven by CSS variables (RGB channel triplets) defined in
+        // src/index.css. `:root` = light theme, `html.dark` = dark theme. This
+        // lets all existing slate-*/accent classes (incl. opacity modifiers)
+        // flip with the theme toggle without touching any component.
+        accent: {
+          DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
+          dark: 'rgb(var(--accent-dark) / <alpha-value>)',
+        },
         slate: {
-          50: '#F8FCF6',
-          100: '#F1FAEE',
-          200: '#DCF0F0',
-          300: '#C9E4E7',
-          400: '#A8DADC',
-          500: '#7BA7C0',
-          600: '#5B8FAE',
-          700: '#457B9D',
-          800: '#274B6D',
-          900: '#1D3557',
-          950: '#142539',
+          50: 'rgb(var(--slate-50) / <alpha-value>)',
+          100: 'rgb(var(--slate-100) / <alpha-value>)',
+          200: 'rgb(var(--slate-200) / <alpha-value>)',
+          300: 'rgb(var(--slate-300) / <alpha-value>)',
+          400: 'rgb(var(--slate-400) / <alpha-value>)',
+          500: 'rgb(var(--slate-500) / <alpha-value>)',
+          600: 'rgb(var(--slate-600) / <alpha-value>)',
+          700: 'rgb(var(--slate-700) / <alpha-value>)',
+          800: 'rgb(var(--slate-800) / <alpha-value>)',
+          900: 'rgb(var(--slate-900) / <alpha-value>)',
+          950: 'rgb(var(--slate-950) / <alpha-value>)',
         },
       },
       fontFamily: {

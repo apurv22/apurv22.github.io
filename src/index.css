@@ -3,11 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+  /* Palette: #E63946 #F1FAEE #A8DADC #457B9D #1D3557 — values are RGB channel
+     triplets so Tailwind's `rgb(var(--x) / <alpha-value>)` opacity modifiers work.
+     :root = light theme (default); html.dark = dark theme. The slate scale is
+     used semantically (high index ≈ background, low index ≈ foreground), so the
+     light theme mirrors the dark one. */
+  :root {
+    --slate-950: 241 250 238; /* #F1FAEE page background */
+    --slate-900: 255 255 255; /* #FFFFFF cards */
+    --slate-800: 220 240 240; /* #DCF0F0 chips / subtle borders */
+    --slate-700: 168 218 220; /* #A8DADC borders */
+    --slate-600: 143 191 200; /* #8FBFC8 */
+    --slate-500: 91 143 174;  /* #5B8FAE muted text */
+    --slate-400: 69 123 157;  /* #457B9D secondary text */
+    --slate-300: 46 83 116;   /* #2E5374 body text */
+    --slate-200: 36 63 92;    /* #243F5C */
+    --slate-100: 29 53 87;    /* #1D3557 headings */
+    --slate-50: 20 37 57;     /* #142539 */
+    --accent: 230 57 70;      /* #E63946 */
+    --accent-dark: 196 46 58; /* #C42E3A */
+  }
+  html.dark {
+    --slate-950: 20 37 57;    /* #142539 page background */
+    --slate-900: 29 53 87;    /* #1D3557 cards */
+    --slate-800: 39 75 109;   /* #274B6D chips / subtle borders */
+    --slate-700: 69 123 157;  /* #457B9D borders */
+    --slate-600: 91 143 174;  /* #5B8FAE */
+    --slate-500: 123 167 192; /* #7BA7C0 muted text */
+    --slate-400: 168 218 220; /* #A8DADC secondary text */
+    --slate-300: 201 228 231; /* #C9E4E7 body text */
+    --slate-200: 220 240 240; /* #DCF0F0 */
+    --slate-100: 241 250 238; /* #F1FAEE headings */
+    --slate-50: 248 252 246;  /* #F8FCF6 */
+  }
   html {
     scroll-behavior: smooth;
   }
   body {
     @apply bg-slate-950 text-slate-300 font-sans antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
   h1, h2, h3, h4 {
     @apply text-slate-100 font-semibold tracking-tight;
