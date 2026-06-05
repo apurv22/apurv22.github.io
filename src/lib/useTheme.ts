@@ -6,8 +6,8 @@ const STORAGE_KEY = 'theme'
 const EVENT = 'themechange'
 
 function currentTheme(): Theme {
-  if (typeof document === 'undefined') return 'light'
-  return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+  if (typeof document === 'undefined') return 'dark'
+  return document.documentElement.classList.contains('light') ? 'light' : 'dark'
 }
 
 export function useTheme(): { theme: Theme; toggle: () => void; setTheme: (t: Theme) => void } {
@@ -21,7 +21,7 @@ export function useTheme(): { theme: Theme; toggle: () => void; setTheme: (t: Th
   }, [])
 
   const setTheme = (t: Theme) => {
-    document.documentElement.classList.toggle('dark', t === 'dark')
+    document.documentElement.classList.toggle('light', t === 'light')
     try {
       localStorage.setItem(STORAGE_KEY, t)
     } catch {

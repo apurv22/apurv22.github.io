@@ -53,7 +53,7 @@ function initMermaid(theme: Theme) {
 export async function renderMermaid(
   chart: string,
   id: string,
-  theme: Theme = 'light',
+  theme: Theme = 'dark',
 ): Promise<string> {
   initMermaid(theme)
   const uniqueId = `mermaid-${id}-${Math.random().toString(36).slice(2)}`
